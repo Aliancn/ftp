@@ -1,0 +1,64 @@
+2024-12-06 18:00:50,041 - INFO - Starting FTP server...
+2024-12-06 18:00:50,041 - INFO - concurrency model: async
+2024-12-06 18:00:50,041 - INFO - masquerade (NAT) address: None
+2024-12-06 18:00:50,042 - INFO - passive ports: 60000->65534
+2024-12-06 18:00:50,042 - INFO - >>> starting FTP server on 0.0.0.0:2121, pid=8750 <<<
+2024-12-06 18:01:27,939 - INFO - 127.0.0.1:58473-[] FTP session opened (connect)
+2024-12-06 18:01:27,939 - INFO - Client connected: 127.0.0.1:58473
+2024-12-06 18:01:34,933 - INFO - 127.0.0.1:58493-[] FTP session opened (connect)
+2024-12-06 18:01:34,933 - INFO - Client connected: 127.0.0.1:58493
+2024-12-06 18:01:34,934 - INFO - 127.0.0.1:58493-[rw] USER 'rw' logged in.
+2024-12-06 18:01:34,934 - INFO - User logged in: rw
+2024-12-06 18:02:11,616 - INFO - 127.0.0.1:58493-[rw] STOR /Users/aliancn/code/go/ftp/ftp-server/date_rw/截屏2024-12-06 17.29.49.png completed=1 bytes=105891 seconds=0.001
+2024-12-06 18:02:11,617 - INFO - File received: /Users/aliancn/code/go/ftp/ftp-server/date_rw/截屏2024-12-06 17.29.49.png
+2024-12-06 18:02:15,424 - INFO - 127.0.0.1:58493-[rw] STOR /Users/aliancn/code/go/ftp/ftp-server/date_rw/截屏2024-12-04 19.42.24.png completed=1 bytes=165165 seconds=0.002
+2024-12-06 18:02:15,424 - INFO - File received: /Users/aliancn/code/go/ftp/ftp-server/date_rw/截屏2024-12-04 19.42.24.png
+2024-12-06 18:02:26,405 - INFO - 127.0.0.1:58493-[rw] STOR /Users/aliancn/code/go/ftp/ftp-server/date_rw/app.pdf completed=1 bytes=297237 seconds=0.001
+2024-12-06 18:02:26,405 - INFO - File received: /Users/aliancn/code/go/ftp/ftp-server/date_rw/app.pdf
+2024-12-06 18:03:13,234 - INFO - 127.0.0.1:58493-[rw] FTP session closed (disconnect).
+2024-12-06 18:03:13,234 - INFO - 127.0.0.1:58473-[] FTP session closed (disconnect).
+2024-12-06 18:03:13,234 - INFO - Client disconnected: 127.0.0.1:58493
+2024-12-06 18:03:13,234 - INFO - Client disconnected: 127.0.0.1:58473
+2024-12-06 18:03:21,687 - INFO - received interrupt signal
+2024-12-06 18:03:21,687 - INFO - >>> shutting down FTP server, 1 socket(s), pid=8750 <<<
+2024-12-06 18:05:47,342 - INFO - Starting FTP server...
+2024-12-06 18:05:47,342 - INFO - concurrency model: async
+2024-12-06 18:05:47,342 - INFO - masquerade (NAT) address: None
+2024-12-06 18:05:47,342 - INFO - passive ports: 60000->65534
+2024-12-06 18:05:47,343 - INFO - >>> starting FTP server on 0.0.0.0:2121, pid=39695 <<<
+2024-12-06 18:06:32,424 - INFO - 127.0.0.1:59048-[] FTP session opened (connect)
+2024-12-06 18:06:32,425 - INFO - Client connected: 127.0.0.1:59048
+2024-12-06 18:06:32,425 - INFO - 127.0.0.1:59048-[rw] USER 'rw' logged in.
+2024-12-06 18:06:32,425 - INFO - User logged in: rw
+2024-12-06 18:08:06,819 - INFO - 127.0.0.1:59048-[rw] FTP session closed (disconnect).
+2024-12-06 18:08:06,820 - INFO - Client disconnected: 127.0.0.1:59048
+2024-12-06 18:11:49,721 - INFO - 127.0.0.1:59621-[] FTP session opened (connect)
+2024-12-06 18:11:49,722 - INFO - Client connected: 127.0.0.1:59621
+2024-12-06 18:11:49,722 - INFO - 127.0.0.1:59621-[rw] USER 'rw' logged in.
+2024-12-06 18:11:49,722 - INFO - User logged in: rw
+2024-12-06 18:16:51,016 - INFO - 127.0.0.1:59621-[rw] Control connection timed out.
+2024-12-06 18:16:51,018 - INFO - 127.0.0.1:59621-[rw] FTP session closed (disconnect).
+2024-12-06 18:16:51,018 - INFO - Client disconnected: 127.0.0.1:59621
+2024-12-06 18:24:30,603 - INFO - 127.0.0.1:61041-[] FTP session opened (connect)
+2024-12-06 18:24:30,605 - INFO - Client connected: 127.0.0.1:61041
+2024-12-06 18:24:30,605 - INFO - 127.0.0.1:61041-[rw] USER 'rw' logged in.
+2024-12-06 18:24:30,605 - INFO - User logged in: rw
+2024-12-06 18:31:41,923 - INFO - 127.0.0.1:61041-[rw] STOR /Users/aliancn/code/go/ftp/ftp-server/date_rw/app.log completed=1 bytes=7715 seconds=0.002
+2024-12-06 18:31:41,923 - INFO - File received: /Users/aliancn/code/go/ftp/ftp-server/date_rw/app.log
+2024-12-06 18:35:36,537 - INFO - 127.0.0.1:62434-[] FTP session opened (connect)
+2024-12-06 18:35:36,538 - INFO - Client connected: 127.0.0.1:62434
+2024-12-06 18:35:36,538 - INFO - 127.0.0.1:62434-[rw] USER 'rw' logged in.
+2024-12-06 18:35:36,538 - INFO - User logged in: rw
+2024-12-06 18:37:01,989 - INFO - 127.0.0.1:61041-[rw] FTP session closed (disconnect).
+2024-12-06 18:37:01,990 - INFO - Client disconnected: 127.0.0.1:61041
+2024-12-06 18:42:13,616 - INFO - 127.0.0.1:62434-[rw] Control connection timed out.
+2024-12-06 18:42:13,619 - INFO - 127.0.0.1:62434-[rw] FTP session closed (disconnect).
+2024-12-06 18:42:13,619 - INFO - Client disconnected: 127.0.0.1:62434
+2024-12-06 18:42:13,731 - INFO - 127.0.0.1:63716-[] FTP session opened (connect)
+2024-12-06 18:42:13,731 - INFO - Client connected: 127.0.0.1:63716
+2024-12-06 18:42:13,731 - INFO - 127.0.0.1:63716-[rw] USER 'rw' logged in.
+2024-12-06 18:42:13,731 - INFO - User logged in: rw
+2024-12-06 18:42:35,157 - INFO - 127.0.0.1:63716-[rw] FTP session closed (disconnect).
+2024-12-06 18:42:35,158 - INFO - Client disconnected: 127.0.0.1:63716
+2024-12-06 18:42:42,123 - INFO - received interrupt signal
+2024-12-06 18:42:42,123 - INFO - >>> shutting down FTP server, 1 socket(s), pid=39695 <<<

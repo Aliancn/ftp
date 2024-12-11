@@ -1,0 +1,7 @@
+{"time":"2024-12-04T19:33:19.441836+08:00","level":"INFO","msg":"failed to upload file: %v","!BADKEY":"550 No such file or directory."}
+{"time":"2024-12-04T19:35:02.377747+08:00","level":"INFO","msg":"failed to upload file: %v","!BADKEY":"550 No such file or directory."}
+{"time":"2024-12-04T19:35:43.243621+08:00","level":"INFO","msg":"failed to upload file: %v","!BADKEY":"550 No such file or directory."}
+{"time":"2024-12-06T18:06:33.886164+08:00","level":"INFO","msg":"截屏2024-12-06 17.29.49.png"}
+{"time":"2024-12-06T18:06:33.886628+08:00","level":"INFO","msg":"app.pdf"}
+{"time":"2024-12-06T18:06:33.886639+08:00","level":"INFO","msg":"dir1"}
+{"time":"2024-12-06T18:06:33.886646+08:00","level":"INFO","msg":"截屏2024-12-04 19.42.24.png"}
