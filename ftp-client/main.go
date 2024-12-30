@@ -23,7 +23,7 @@ func init() {
 func main() {
 	// Create an instance of the app structure
 	app := NewApp()
-	ftpClient := &FTPClient{}
+	ftpClient := NewFTPClient()
 	// Create application with options
 	err := wails.Run(&options.App{
 		Title:  "ftp-client",

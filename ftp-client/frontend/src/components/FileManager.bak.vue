@@ -22,7 +22,7 @@ import {
   CreateFolder,
   Delete,
   Upload,
-} from "../../wailsjs/go/main/FTPClient";
+} from "../../wailsjs/go/main/app";
 import { OpenAndUploadFile } from "../../wailsjs/go/main/app";
 export default defineComponent({
   setup() {
@@ -55,7 +55,8 @@ export default defineComponent({
       try {
         await Download(
           `${currentPath.value}/${file}`,
-          `/Users/aliancn/Downloads/${file}`
+          `/Users/aliancn/Downloads/${file}`,
+          111
         );
       } catch (error: any) {
         alert("Failed to download file: " + error.message);

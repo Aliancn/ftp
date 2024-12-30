@@ -9,12 +9,15 @@ import (
 
 // App struct
 type App struct {
-	ctx    context.Context
+	ctx context.Context
+	ftp *FTPClient
 }
 
 // NewApp creates a new App application struct
 func NewApp() *App {
-	return &App{}
+	return &App{
+		ftp: NewFTPClient(),
+	}
 }
 
 // startup is called when the app starts. The context is saved
@@ -37,3 +40,4 @@ func (a *App) OpenAndUploadFile() (string, error) {
 	}
 	return filePath, nil
 }
+

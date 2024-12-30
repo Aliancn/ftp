@@ -1,9 +1,17 @@
 <template>
-  <n-space vertical align="start" class="container">
+  <n-space justify="space-around" align="center">
+    <n-button @click="showFilePage = true" type="primary" size="large"
+      >FilePage</n-button
+    >
+    <n-button @click="showFilePage = false" type="primary" size="large"
+      >DownloadPage</n-button
+    >
+  </n-space>
+
+  <n-space vertical align="start" class="container" v-if="showFilePage">
     <!-- 标题 -->
     <h2 class="title">File Manager</h2>
-
-    <!-- 操作按钮 -->
+    <h3 class="title">Current Path: {{ currentPath }}</h3>
     <n-space>
       <n-button @click="refreshFiles" type="primary" size="large"
         >Refresh</n-button
@@ -11,7 +19,7 @@
       <n-button @click="returnToDir" type="primary" size="large">
         Return
       </n-button>
-      <n-button @click="createFolder" type="success" size="large"
+      <n-button @click="showCreateFolder" type="success" size="large"
         >Create Folder</n-button
       >
       <n-button @click="uploadFile" type="info" size="large"
@@ -36,13 +44,13 @@
           <template v-for="item in directories" :key="item.Name">
             <tr>
               <td>{{ item.Name }}</td>
-              <td>{{ getFileType(item.Type) }}</td>
+              <td>{{ item.Type }}</td>
               <td>{{ formatSize(item.Size) }}</td>
               <td>{{ formatTime(item.Time) }}</td>
               <td>
                 <n-space>
                   <n-button
-                    v-if="item.Type === 1"
+                    v-if="item.Type === 'Directory'"
                     @click="openDir(item.Name)"
                     type="primary"
                     size="small"
@@ -50,7 +58,8 @@
                     enter
                   </n-button>
                   <n-button
-                    @click="downloadFile(item.Name)"
+                    v-else
+                    @click="downloadFile(item)"
                     type="primary"
                     size="small"
                   >
@@ -71,19 +80,41 @@
       </n-table>
       <n-empty v-else description="No files available" />
     </n-card>
+    <n-modal v-model:show="showCreateFolderModal" title="新建文件夹">
+      <n-card
+        style="width: 600px"
+        title="新建文件夹"
+        :bordered="false"
+        size="huge"
+        role="dialog"
+        aria-modal="true"
+        ><n-input
+          v-model:value="newFolderName"
+          placeholder="请输入文件夹名称"
+          style="margin: 10px; padding: 10px"
+        />
+        <n-space justify="space-between" style="width: 200px; margin: auto"
+          ><n-button @click="showCreateFolderModal = false">取消</n-button>
+          <n-button @click="createFolder" type="primary">确定</n-button>
+        </n-space>
+      </n-card>
+    </n-modal>
   </n-space>
+  <n-message-provider v-else>
+    <DownloadPage :downloads="exampleDownloads" />
+  </n-message-provider>
 </template>
-
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 import {
+  OpenAndUploadFile,
   List,
   Download,
   CreateFolder,
   Delete,
   Upload,
-} from "../../wailsjs/go/main/FTPClient";
-import { OpenAndUploadFile } from "../../wailsjs/go/main/app";
+} from "../../wailsjs/go/main/app";
+import { EventsOn } from "../../wailsjs/runtime/runtime";
 import {
   NButton,
   NSpace,
@@ -92,25 +123,56 @@ import {
   NEmpty,
   NListItem,
   NTable,
+  NModal,
+  NInput,
+  NMessageProvider,
 } from "naive-ui";
+import DownloadPage from "./DownloadPage.vue";
 export default defineComponent({
-  components: { NButton, NSpace, NList, NCard, NEmpty, NListItem, NTable },
+  components: {
+    NButton,
+    NSpace,
+    NList,
+    NCard,
+    NEmpty,
+    NListItem,
+    NTable,
+    NModal,
+    NInput,
+    DownloadPage,
+    NMessageProvider,
+  },
   setup() {
-    const currentPath = ref("./");
+    const currentPath = ref(".");
     // const directories = ref<string[]>([]);
     const directories = ref<any[]>([]);
     const uploadedFiles = ref<string[]>([]); // 用于存储已上传的文件路径
-
-    const getFileType = (type: number) => {
-      switch (type) {
-        case 0:
-          return "File";
-        case 1:
-          return "Directory";
-        default:
-          return "Unknown";
-      }
-    };
+    const showCreateFolderModal = ref(false);
+    const newFolderName = ref("");
+    const showFilePage = ref(true);
+    const exampleDownloads = ref([
+      {
+        fileName: "example1.zip",
+        fileSize: 1000000, // 1 MB
+        downloaded: 500000, // 500 KB
+        status: "downloading", // 下载中
+        remotePath: "/Users/aliancn/Downloads/example1.zip",
+      },
+      {
+        fileName: "example2.pdf",
+        fileSize: 2000000, // 2 MB
+        downloaded: 2000000, // 已完成
+        status: "completed", // 已完成
+        remotePath: "/Users/aliancn/Downloads/example2.pdf",
+      },
+      {
+        fileName: "example3.mp4",
+        fileSize: 500000000, // 500 MB
+        downloaded: 100000000, // 100 MB
+        status: "paused", // 已暂停
+        remotePath: "/Users/aliancn/Downloads/example3.mp4",
+      },
+    ]);
 
     const formatSize = (size: number) => {
       if (size < 1024) return `${size} B`;
@@ -120,14 +182,71 @@ export default defineComponent({
       else return `${(size / (1024 * 1024 * 1024)).toFixed(2)} GB`;
     };
 
-    const formatTime = (time: string) => {
-      const date = new Date(time);
-      return date.toLocaleString();
+    const formatTime = (dateTime: string) => {
+      const months = {
+        Jan: "01",
+        Feb: "02",
+        Mar: "03",
+        Apr: "04",
+        May: "05",
+        Jun: "06",
+        Jul: "07",
+        Aug: "08",
+        Sep: "09",
+        Oct: "10",
+        Nov: "11",
+        Dec: "12",
+      };
+
+      const parts = dateTime.split(" ");
+      const year = parts[0];
+      const month = months[parts[1] as keyof typeof months];
+      const day = parts[2].padStart(2, "0");
+      const time = parts[3];
+
+      return `${year}/${month}/${day} ${time}`;
+    };
+
+    const parseListInfo = (listInfo: string[]) => {
+      let result: any[] = [];
+      if (listInfo == null) return result;
+      if (listInfo.length === 0) return result;
+      for (const line of listInfo) {
+        // 使用正则表达式解析 LIST 信息
+        const parts = line.match(
+          /^(?<permissions>[drwx\-]+)\s+\d+\s+\w+\s+\w+\s+(?<size>\d+)\s+(?<month>\w+)\s+(?<day>\d+)\s+(?<time>\d+:\d+|\d{4})\s+(?<name>.+)$/
+        );
+
+        if (parts?.groups) {
+          const { permissions, size, month, day, time, name } = parts.groups;
+
+          // 判断文件类型
+          const type: "File" | "Directory" =
+            permissions[0] === "d" ? "Directory" : "File";
+
+          // 拼接时间字符串
+          const currentYear = new Date().getFullYear();
+          const formattedTime = time.includes(":") // 如果有时间，说明是当年
+            ? `${currentYear} ${month} ${day} ${time}`
+            : `${month} ${day} ${time}`; // 如果没有冒号，则是年份
+
+          // 添加到结果数组
+          result.push({
+            Type: type,
+            Size: parseInt(size, 10), // 转换为数字
+            Time: formattedTime,
+            Name: name,
+          });
+        }
+      }
+
+      return result;
     };
 
     const refreshFiles = async () => {
       try {
-        directories.value = await List(currentPath.value);
+        const listResult = await List(currentPath.value);
+        directories.value = parseListInfo(listResult);
         console.log(directories.value);
       } catch (error: any) {
         alert("Failed to list files: " + error.message);
@@ -141,6 +260,7 @@ export default defineComponent({
 
     const returnToDir = () => {
       let path = currentPath.value.split("/");
+      if (path.length < 2) return;
       path.pop();
       currentPath.value = path.join("/");
       refreshFiles();
@@ -158,22 +278,46 @@ export default defineComponent({
       }
     };
 
-    const downloadFile = async (file: string) => {
+    const downloadFile = async (file: any) => {
       try {
+        const index = exampleDownloads.value.findIndex(
+          (d) => d.fileName === currentPath.value + "/" + file.Name
+        );
+        if (index !== -1) {
+          alert("File is already downloaded");
+          return;
+        }
+        let localPath = currentPath.value + "/" + file.Name;
+        let remotePath = `/Users/aliancn/Downloads/${file.Name}`;
+        exampleDownloads.value.push({
+          fileName: localPath,
+          fileSize: file.Size,
+          downloaded: 0,
+          status: "downloading",
+          remotePath: remotePath,
+        });
+
         await Download(
-          `${currentPath.value}/${file}`,
-          `/Users/aliancn/Downloads/${file}`
+          localPath,
+          remotePath, // TODO change to download path
+          file.Size
         );
       } catch (error: any) {
         alert("Failed to download file: " + error.message);
       }
     };
 
+    const showCreateFolder = () => {
+      showCreateFolderModal.value = !showCreateFolderModal.value;
+      console.log("showCreateFolderModal", showCreateFolderModal.value);
+    };
+
     const createFolder = async () => {
-      const folderName = prompt("Enter folder name:");
+      const folderName = newFolderName.value;
       if (folderName) {
         try {
           await CreateFolder(`${currentPath.value}/${folderName}`);
+          showCreateFolderModal.value = !showCreateFolderModal.value;
           refreshFiles();
         } catch (error: any) {
           alert("Failed to create folder: " + error.message);
@@ -190,8 +334,32 @@ export default defineComponent({
       }
     };
 
+    onMounted(() => {
+      // 监听后端推送的下载进度
+      EventsOn("download-progress", (progress: any) => {
+        console.log("download-progress", progress);
+        // 查找目标文件
+        const index = exampleDownloads.value.findIndex(
+          (d) => d.fileName === progress.fileName
+        );
+        if (index !== -1) {
+          console.log("index", index);
+          exampleDownloads.value[index].downloaded = progress.downloaded;
+          if (progress.downloaded === progress.fileSize) {
+            exampleDownloads.value[index].status = "completed";
+          } 
+        }
+        console.log("exampleDownloads", exampleDownloads.value);
+      });
+    });
+
     return {
-      getFileType,
+      showCreateFolderModal,
+      showCreateFolder,
+      showFilePage,
+      currentPath,
+      exampleDownloads,
+      newFolderName,
       formatSize,
       formatTime,
       directories,

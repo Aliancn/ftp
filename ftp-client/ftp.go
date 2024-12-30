@@ -1,70 +1,67 @@
 package main
 
 import (
+	"context"
 	"fmt"
-	"io"
-	"os"
-	"time"
-
-	"github.com/jlaffaye/ftp"
 )
 
 type FTPClient struct {
-	connection *ftp.ServerConn
+	*FTPConn
+	DEFAULT_CONTROL_PORT int
+	DEFAULT_ADDR         string
+	ctx                  context.Context
+	cancel               context.CancelFunc
+}
+
+// NewFTPClient initializes a new FTP client
+func NewFTPClient() *FTPClient {
+	return &FTPClient{
+		FTPConn:              NewFTPConn(),
+		DEFAULT_CONTROL_PORT: 2121,
+		DEFAULT_ADDR:         "127.0.0.1",
+	}
 }
 
 // Connect to FTP server
-func (f *FTPClient) Connect(address, username, password string) error {
-	conn, err := ftp.Dial(address, ftp.DialWithTimeout(5*time.Second))
+func (a *App) Connect(address, username, password string) error {
+	err := a.ftp.Dial(address)
 	if err != nil {
+		MyLogger.Info("failed to connect", err)
 		return fmt.Errorf("failed to connect: %v", err)
 	}
-
-	if err := conn.Login(username, password); err != nil {
+	MyLogger.Info("password ", password)
+	if err := a.ftp.Login(username, password); err != nil {
+		MyLogger.Info("failed to login: ", err)
 		return fmt.Errorf("failed to login: %v", err)
 	}
 
-	f.connection = conn
 	return nil
 }
 
 // List files and directories
-func (f *FTPClient) List(path string) ([]*ftp.Entry, error) {
-	if f.connection == nil {
+func (a *App) List(path string) ([]string, error) {
+	if a.ftp.controlConn == nil {
+		MyLogger.Info("not connected")
 		return nil, fmt.Errorf("not connected")
 	}
 
-	entries, err := f.connection.List(path)
+	entries, err := a.ftp.ListFiles(path)
 	if err != nil {
+		MyLogger.Info("failed to list directory: ", err)
 		return nil, fmt.Errorf("failed to list directory: %v", err)
 	}
-
-	// var files []string
-	// for _, entry := range entries {
-	// 	MyLogger.Info(entry.Name)
-	// 	files = append(files, entry.Name)
-	// }
-	// return files, nil
 
 	return entries, nil
 }
 
 // Upload file
-func (f *FTPClient) Upload(localFile, remotePath string) error {
-	if f.connection == nil {
+func (a *App) Upload(localFile, remotePath string) error {
+	if a.ftp.controlConn == nil {
 		MyLogger.Info("not connected")
 		return fmt.Errorf("not connected")
 	}
 
-	file, err := os.Open(localFile)
-	if err != nil {
-		MyLogger.Info("failed to open local file: ", localFile)
-		MyLogger.Info("failed to open local file: ", err)
-		return fmt.Errorf("failed to open local file: %v", err)
-	}
-	defer file.Close()
-
-	if err := f.connection.Stor(remotePath, file); err != nil {
+	if err := a.ftp.STOR(localFile, remotePath); err != nil {
 		MyLogger.Info("failed to upload file: %v", err)
 		return fmt.Errorf("failed to upload file: %v", err)
 	}
@@ -72,57 +69,79 @@ func (f *FTPClient) Upload(localFile, remotePath string) error {
 }
 
 // Download file
-func (f *FTPClient) Download(remotePath, localPath string) error {
-	if f.connection == nil {
+func (a *App) Download(remotePath, localPath string, size int64) error {
+	if a.ftp.controlConn == nil {
+		MyLogger.Info("not connected")
 		return fmt.Errorf("not connected")
 	}
 
-	resp, err := f.connection.Retr(remotePath)
-	if err != nil {
-		return fmt.Errorf("failed to download file: %v", err)
+	if a.ftp.ctx == nil {
+		a.ftp.ctx, a.ftp.cancel = context.WithCancel(context.Background())
+	} else {
+		a.ftp.ctx, a.ftp.cancel = context.WithCancel(context.Background())
 	}
-	defer resp.Close()
 
-	file, err := os.Create(localPath)
+	// 获取本地文件大小
+	localFileSize, err := GetDownloadedOffset(localPath)
 	if err != nil {
-		return fmt.Errorf("failed to create local file: %v", err)
+		MyLogger.Info("获取本地文件大小失败: ", err)
+		return err
 	}
-	defer file.Close()
 
-	if _, err := io.Copy(file, resp); err != nil {
-		return fmt.Errorf("failed to save file: %v", err)
+	// 恢复下载
+	err = a.ftp.REST_RETR(remotePath, localPath, localFileSize, a.ctx)
+	if err != nil {
+		MyLogger.Info("恢复下载失败: ", err)
+		return err
 	}
+
+	return nil
+}
+
+func (a *App) StopDownload() error {
+	if a.ftp.controlConn == nil {
+		MyLogger.Info("not connected")
+		return fmt.Errorf("not connected")
+	}
+	if a.ftp.cancel != nil {
+		fmt.Println("cancel")
+		a.ftp.cancel()
+		a.ftp.cancel = nil
+	}
+
 	return nil
 }
 
 // Create folder
-func (f *FTPClient) CreateFolder(path string) error {
-	if f.connection == nil {
+func (a *App) CreateFolder(path string) error {
+	if a.ftp.controlConn == nil {
 		return fmt.Errorf("not connected")
 	}
 
-	if err := f.connection.MakeDir(path); err != nil {
+	if err := a.ftp.MakeDir(path); err != nil {
+		MyLogger.Info("failed to create folder: ", err)
 		return fmt.Errorf("failed to create folder: %v", err)
 	}
 	return nil
 }
 
 // Delete folder or file
-func (f *FTPClient) Delete(path string) error {
-	if f.connection == nil {
+func (a *App) Delete(path string) error {
+	if a.ftp.controlConn == nil {
 		return fmt.Errorf("not connected")
 	}
 
-	if err := f.connection.Delete(path); err != nil {
+	if err := a.ftp.Dele(path, false); err != nil {
+		MyLogger.Info("failed to delete: ", err)
 		return fmt.Errorf("failed to delete: %v", err)
 	}
 	return nil
 }
 
 // Disconnect from FTP server
-func (f *FTPClient) Disconnect() error {
-	if f.connection != nil {
-		return f.connection.Quit()
+func (a *App) Disconnect() error {
+	if a.ftp.controlConn != nil {
+		return a.ftp.Close()
 	}
 	return nil
 }

@@ -21,17 +21,18 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { Connect } from "../../wailsjs/go/main/FTPClient";
+import { Connect } from "../../wailsjs/go/main/app";
 
 export default defineComponent({
   emits: ["login-success"],
   setup(_, { emit }) {
-    const server = ref("");
-    const username = ref("");
-    const password = ref("");
+    const server = ref("127.0.0.1:2121");
+    const username = ref("rw");
+    const password = ref("123");
 
     const login = async () => {
       try {
+        console.log("login", server.value, username.value, password.value);
         await Connect(server.value, username.value, password.value);
         emit("login-success");
       } catch (error: any) {
