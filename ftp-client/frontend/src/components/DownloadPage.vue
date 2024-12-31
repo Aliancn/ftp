@@ -71,6 +71,7 @@ export default defineComponent({
           fileSize: number;
           downloaded: number;
           status: string;
+          remotePath: string;
         }[]
       >,
       required: true,
@@ -117,7 +118,7 @@ export default defineComponent({
       if (file) {
         file.status = "paused";
         await StopDownload();
-        message.warning(`暂停下载: ${row.fileName}`);
+        message.warning(`暂停下载: ${file.fileName}`);
       }
     };
 
@@ -125,8 +126,8 @@ export default defineComponent({
       const file = props.downloads.find((d) => d.fileName === row.fileName);
       if (file) {
         file.status = "downloading";
-        await Download(row.localPath, row.remotePath, row.Size);
-        message.success(`继续下载: ${row.fileName}`);
+        await Download(file.fileName, file.remotePath, file.fileSize);
+        message.success(`继续下载: ${file.fileName}`);
       }
     };
 
@@ -136,6 +137,7 @@ export default defineComponent({
       if (index !== -1) {
         props.downloads.splice(index, 1);
       }
+      await StopDownload();
       message.error(`删除下载: ${fileName}`);
     };
 

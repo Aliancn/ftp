@@ -345,7 +345,7 @@ export default defineComponent({
         if (index !== -1) {
           console.log("index", index);
           exampleDownloads.value[index].downloaded = progress.downloaded;
-          if (progress.downloaded === progress.fileSize) {
+          if (progress.downloaded === exampleDownloads.value[index].fileSize) {
             exampleDownloads.value[index].status = "completed";
           } 
         }

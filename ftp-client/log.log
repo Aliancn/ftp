@@ -364,3 +364,66 @@
 {"time":"2024-12-30T21:09:17.580742+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,238,216)."}
 {"time":"2024-12-30T21:09:25.591006+08:00","level":"INFO","msg":"TYPE A服务器响应:","!BADKEY":"200 Type set to: ASCII."}
 {"time":"2024-12-30T21:09:25.592382+08:00","level":"INFO","msg":"恢复下载失败: ","!BADKEY":"下载被取消: context canceled"}
+{"time":"2024-12-31T10:37:55.748305+08:00","level":"INFO","msg":"password ","!BADKEY":"123"}
+{"time":"2024-12-31T10:37:55.749715+08:00","level":"INFO","msg":"USER 服务器响应:","!BADKEY":"331 Username ok, send password."}
+{"time":"2024-12-31T10:37:55.750119+08:00","level":"INFO","msg":"PASS 服务器响应:","!BADKEY":"230 Login successful."}
+{"time":"2024-12-31T10:37:55.789869+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,243,166)."}
+{"time":"2024-12-31T10:37:55.790798+08:00","level":"INFO","msg":"目录 '.' 下的文件列表:"}
+{"time":"2024-12-31T10:37:55.793063+08:00","level":"INFO","msg":"关闭数据连接:","!BADKEY":"226 Transfer complete."}
+{"time":"2024-12-31T10:38:08.795859+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,240,182)."}
+{"time":"2024-12-31T10:38:08.797452+08:00","level":"INFO","msg":"目录 '.' 下的文件列表:"}
+{"time":"2024-12-31T10:38:08.798226+08:00","level":"INFO","msg":"关闭数据连接:","!BADKEY":"226 Transfer complete."}
+{"time":"2024-12-31T10:38:16.540628+08:00","level":"INFO","msg":"MKD 服务器响应:","!BADKEY":"257 \"/1\" directory created."}
+{"time":"2024-12-31T10:38:16.540899+08:00","level":"INFO","msg":"文件夹 '%s' 创建成功\n","!BADKEY":"./1"}
+{"time":"2024-12-31T10:38:16.542122+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,247,122)."}
+{"time":"2024-12-31T10:38:16.543479+08:00","level":"INFO","msg":"目录 '.' 下的文件列表:"}
+{"time":"2024-12-31T10:38:16.544233+08:00","level":"INFO","msg":"关闭数据连接:","!BADKEY":"226 Transfer complete."}
+{"time":"2024-12-31T10:38:18.694047+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,244,252)."}
+{"time":"2024-12-31T10:38:18.695896+08:00","level":"INFO","msg":"目录 './1' 下的文件列表:"}
+{"time":"2024-12-31T10:38:18.696194+08:00","level":"INFO","msg":"关闭数据连接:","!BADKEY":"226 Transfer complete."}
+{"time":"2024-12-31T10:38:22.493782+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,251,189)."}
+{"time":"2024-12-31T10:38:22.495151+08:00","level":"INFO","msg":"目录 '.' 下的文件列表:"}
+{"time":"2024-12-31T10:38:22.495909+08:00","level":"INFO","msg":"关闭数据连接:","!BADKEY":"226 Transfer complete."}
+{"time":"2024-12-31T10:40:59.399539+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,239,121)."}
+{"time":"2024-12-31T10:40:59.401137+08:00","level":"INFO","msg":"目录 '.' 下的文件列表:"}
+{"time":"2024-12-31T10:40:59.401688+08:00","level":"INFO","msg":"关闭数据连接:","!BADKEY":"226 Transfer complete."}
+{"time":"2024-12-31T10:41:00.281101+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,244,37)."}
+{"time":"2024-12-31T10:41:00.282713+08:00","level":"INFO","msg":"目录 '.' 下的文件列表:"}
+{"time":"2024-12-31T10:41:00.283334+08:00","level":"INFO","msg":"关闭数据连接:","!BADKEY":"226 Transfer complete."}
+{"time":"2024-12-31T10:41:04.484265+08:00","level":"INFO","msg":"TYPE 服务器响应:","!BADKEY":"200 Type set to: Binary."}
+{"time":"2024-12-31T10:41:04.485877+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,251,222)."}
+{"time":"2024-12-31T10:41:04.488439+08:00","level":"INFO","msg":"TYPE A服务器响应:","!BADKEY":"200 Type set to: ASCII."}
+{"time":"2024-12-31T10:41:21.180122+08:00","level":"INFO","msg":"TYPE 服务器响应:","!BADKEY":"200 Type set to: Binary."}
+{"time":"2024-12-31T10:41:21.182135+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,249,138)."}
+{"time":"2024-12-31T10:41:27.190846+08:00","level":"INFO","msg":"TYPE A服务器响应:","!BADKEY":"200 Type set to: ASCII."}
+{"time":"2024-12-31T10:41:27.192892+08:00","level":"INFO","msg":"恢复下载失败: ","!BADKEY":"下载被取消: context canceled"}
+{"time":"2024-12-31T10:41:32.009954+08:00","level":"INFO","msg":"TYPE 服务器响应:","!BADKEY":"200 Type set to: Binary."}
+{"time":"2024-12-31T10:41:32.010622+08:00","level":"INFO","msg":"恢复下载失败: ","!BADKEY":"RETR 命令失败: 501 Syntax error: command needs an argument."}
+{"time":"2024-12-31T10:47:54.711822+08:00","level":"INFO","msg":"password ","!BADKEY":"123"}
+{"time":"2024-12-31T10:47:54.712485+08:00","level":"INFO","msg":"USER 服务器响应:","!BADKEY":"331 Username ok, send password."}
+{"time":"2024-12-31T10:47:54.712806+08:00","level":"INFO","msg":"PASS 服务器响应:","!BADKEY":"230 Login successful."}
+{"time":"2024-12-31T10:47:54.722086+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,241,70)."}
+{"time":"2024-12-31T10:47:54.723251+08:00","level":"INFO","msg":"目录 '.' 下的文件列表:"}
+{"time":"2024-12-31T10:47:54.724033+08:00","level":"INFO","msg":"关闭数据连接:","!BADKEY":"226 Transfer complete."}
+{"time":"2024-12-31T10:48:22.16921+08:00","level":"INFO","msg":"TYPE 服务器响应:","!BADKEY":"200 Type set to: Binary."}
+{"time":"2024-12-31T10:48:22.171395+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,239,159)."}
+{"time":"2024-12-31T10:48:30.181641+08:00","level":"INFO","msg":"TYPE A服务器响应:","!BADKEY":"200 Type set to: ASCII."}
+{"time":"2024-12-31T10:48:30.184704+08:00","level":"INFO","msg":"恢复下载失败: ","!BADKEY":"下载被取消: context canceled"}
+{"time":"2024-12-31T10:48:37.488164+08:00","level":"INFO","msg":"TYPE 服务器响应:","!BADKEY":"200 Type set to: Binary."}
+{"time":"2024-12-31T10:48:37.490732+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,244,41)."}
+{"time":"2024-12-31T10:50:01.721775+08:00","level":"INFO","msg":"TYPE A服务器响应:","!BADKEY":"200 Type set to: ASCII."}
+{"time":"2024-12-31T10:53:19.346681+08:00","level":"INFO","msg":"password ","!BADKEY":"123"}
+{"time":"2024-12-31T10:53:19.347708+08:00","level":"INFO","msg":"USER 服务器响应:","!BADKEY":"331 Username ok, send password."}
+{"time":"2024-12-31T10:53:19.348191+08:00","level":"INFO","msg":"PASS 服务器响应:","!BADKEY":"230 Login successful."}
+{"time":"2024-12-31T10:53:19.378749+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,248,150)."}
+{"time":"2024-12-31T10:53:19.380154+08:00","level":"INFO","msg":"目录 '.' 下的文件列表:"}
+{"time":"2024-12-31T10:53:19.381074+08:00","level":"INFO","msg":"关闭数据连接:","!BADKEY":"226 Transfer complete."}
+{"time":"2024-12-31T10:53:24.310009+08:00","level":"INFO","msg":"TYPE 服务器响应:","!BADKEY":"200 Type set to: Binary."}
+{"time":"2024-12-31T10:53:24.311948+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,235,103)."}
+{"time":"2024-12-31T10:54:26.461132+08:00","level":"INFO","msg":"TYPE A服务器响应:","!BADKEY":"200 Type set to: ASCII."}
+{"time":"2024-12-31T10:54:50.40855+08:00","level":"INFO","msg":"TYPE 服务器响应:","!BADKEY":"200 Type set to: Binary."}
+{"time":"2024-12-31T10:54:50.410256+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,244,195)."}
+{"time":"2024-12-31T10:54:50.412395+08:00","level":"INFO","msg":"TYPE A服务器响应:","!BADKEY":"200 Type set to: ASCII."}
+{"time":"2024-12-31T10:55:03.093212+08:00","level":"INFO","msg":"TYPE 服务器响应:","!BADKEY":"200 Type set to: Binary."}
+{"time":"2024-12-31T10:55:03.094695+08:00","level":"INFO","msg":"PASV 服务器响应:","!BADKEY":"227 Entering passive mode (127,0,0,1,238,95)."}
+{"time":"2024-12-31T10:55:07.100797+08:00","level":"INFO","msg":"TYPE A服务器响应:","!BADKEY":"200 Type set to: ASCII."}

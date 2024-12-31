@@ -4026,3 +4026,255 @@
 2024-12-30 21:10:07,518 - DEBUG - [debug] call: close() (<CustomFTPHandler(id=4367848000, addr='127.0.0.1:52050', user='rw')>)
 2024-12-30 21:10:07,520 - INFO - 127.0.0.1:52050-[rw] FTP session closed (disconnect).
 2024-12-30 21:10:07,520 - INFO - Client disconnected: 127.0.0.1:52050
+2024-12-31 10:37:32,695 - INFO - Starting FTP server...
+2024-12-31 10:37:32,695 - INFO - concurrency model: async
+2024-12-31 10:37:32,695 - INFO - masquerade (NAT) address: None
+2024-12-31 10:37:32,696 - INFO - passive ports: 60000->65534
+2024-12-31 10:37:32,696 - DEBUG - poller: 'pyftpdlib.ioloop.Kqueue'
+2024-12-31 10:37:32,696 - DEBUG - authorizer: 'pyftpdlib.authorizers.DummyAuthorizer'
+2024-12-31 10:37:32,696 - DEBUG - use sendfile(2): True
+2024-12-31 10:37:32,696 - DEBUG - handler: '__main__.type'
+2024-12-31 10:37:32,696 - DEBUG - max connections: 256
+2024-12-31 10:37:32,696 - DEBUG - max connections per ip: 5
+2024-12-31 10:37:32,696 - DEBUG - timeout: 300
+2024-12-31 10:37:32,696 - DEBUG - banner: 'Welcome to the secure FTP server!'
+2024-12-31 10:37:32,696 - DEBUG - max login attempts: 3
+2024-12-31 10:37:32,696 - INFO - >>> starting FTP server on 0.0.0.0:2121, pid=13279 <<<
+2024-12-31 10:37:55,747 - INFO - 127.0.0.1:58028-[] FTP session opened (connect)
+2024-12-31 10:37:55,747 - INFO - Client connected: 127.0.0.1:58028
+2024-12-31 10:37:55,748 - DEBUG - 127.0.0.1:58028-[] -> 220 Welcome to the secure FTP server!
+2024-12-31 10:37:55,749 - DEBUG - 127.0.0.1:58028-[] <- USER rw
+2024-12-31 10:37:55,749 - DEBUG - 127.0.0.1:58028-[] -> 331 Username ok, send password.
+2024-12-31 10:37:55,749 - DEBUG - 127.0.0.1:58028-[rw] <- PASS ******
+2024-12-31 10:37:55,750 - DEBUG - 127.0.0.1:58028-[rw] -> 230 Login successful.
+2024-12-31 10:37:55,750 - INFO - 127.0.0.1:58028-[rw] USER 'rw' logged in.
+2024-12-31 10:37:55,750 - INFO - User logged in: rw
+2024-12-31 10:37:55,789 - DEBUG - 127.0.0.1:58028-[rw] <- PASV
+2024-12-31 10:37:55,789 - DEBUG - 127.0.0.1:58028-[rw] -> 227 Entering passive mode (127,0,0,1,243,166).
+2024-12-31 10:37:55,790 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:62374 at 0x104610b20>)
+2024-12-31 10:37:55,790 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:62374 at 0x104610b20>)
+2024-12-31 10:37:55,790 - DEBUG - 127.0.0.1:58028-[rw] <- LIST .
+2024-12-31 10:37:55,790 - DEBUG - 127.0.0.1:58028-[rw] -> 125 Data connection already open. Transfer starting.
+2024-12-31 10:37:55,790 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:37:55,792 - DEBUG - [debug] call: close() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:37:55,793 - DEBUG - 127.0.0.1:58028-[rw] -> 226 Transfer complete.
+2024-12-31 10:38:08,795 - DEBUG - 127.0.0.1:58028-[rw] <- PASV
+2024-12-31 10:38:08,795 - DEBUG - 127.0.0.1:58028-[rw] -> 227 Entering passive mode (127,0,0,1,240,182).
+2024-12-31 10:38:08,796 - DEBUG - 127.0.0.1:58028-[rw] <- LIST .
+2024-12-31 10:38:08,797 - DEBUG - 127.0.0.1:58028-[rw] -> 150 File status okay. About to open data connection.
+2024-12-31 10:38:08,797 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:61622 at 0x104610910>)
+2024-12-31 10:38:08,797 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:61622 at 0x104610910>)
+2024-12-31 10:38:08,797 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:38:08,797 - DEBUG - [debug] call: close() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:38:08,798 - DEBUG - 127.0.0.1:58028-[rw] -> 226 Transfer complete.
+2024-12-31 10:38:16,538 - DEBUG - 127.0.0.1:58028-[rw] <- MKD ./1
+2024-12-31 10:38:16,540 - DEBUG - 127.0.0.1:58028-[rw] -> 257 "/1" directory created.
+2024-12-31 10:38:16,541 - DEBUG - 127.0.0.1:58028-[rw] <- PASV
+2024-12-31 10:38:16,542 - DEBUG - 127.0.0.1:58028-[rw] -> 227 Entering passive mode (127,0,0,1,247,122).
+2024-12-31 10:38:16,542 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:63354 at 0x104611240>)
+2024-12-31 10:38:16,542 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:63354 at 0x104611240>)
+2024-12-31 10:38:16,543 - DEBUG - 127.0.0.1:58028-[rw] <- LIST .
+2024-12-31 10:38:16,543 - DEBUG - 127.0.0.1:58028-[rw] -> 125 Data connection already open. Transfer starting.
+2024-12-31 10:38:16,543 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:38:16,544 - DEBUG - [debug] call: close() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:38:16,544 - DEBUG - 127.0.0.1:58028-[rw] -> 226 Transfer complete.
+2024-12-31 10:38:18,693 - DEBUG - 127.0.0.1:58028-[rw] <- PASV
+2024-12-31 10:38:18,693 - DEBUG - 127.0.0.1:58028-[rw] -> 227 Entering passive mode (127,0,0,1,244,252).
+2024-12-31 10:38:18,694 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:62716 at 0x1046111b0>)
+2024-12-31 10:38:18,695 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:62716 at 0x1046111b0>)
+2024-12-31 10:38:18,695 - DEBUG - 127.0.0.1:58028-[rw] <- LIST ./1
+2024-12-31 10:38:18,695 - DEBUG - 127.0.0.1:58028-[rw] -> 125 Data connection already open. Transfer starting.
+2024-12-31 10:38:18,695 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:38:18,695 - DEBUG - [debug] call: close() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:38:18,696 - DEBUG - 127.0.0.1:58028-[rw] -> 226 Transfer complete.
+2024-12-31 10:38:22,493 - DEBUG - 127.0.0.1:58028-[rw] <- PASV
+2024-12-31 10:38:22,493 - DEBUG - 127.0.0.1:58028-[rw] -> 227 Entering passive mode (127,0,0,1,251,189).
+2024-12-31 10:38:22,494 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:64445 at 0x1046112a0>)
+2024-12-31 10:38:22,494 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:64445 at 0x1046112a0>)
+2024-12-31 10:38:22,494 - DEBUG - 127.0.0.1:58028-[rw] <- LIST .
+2024-12-31 10:38:22,495 - DEBUG - 127.0.0.1:58028-[rw] -> 125 Data connection already open. Transfer starting.
+2024-12-31 10:38:22,495 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:38:22,495 - DEBUG - [debug] call: close() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:38:22,495 - DEBUG - 127.0.0.1:58028-[rw] -> 226 Transfer complete.
+2024-12-31 10:40:59,397 - DEBUG - 127.0.0.1:58028-[rw] <- PASV
+2024-12-31 10:40:59,399 - DEBUG - 127.0.0.1:58028-[rw] -> 227 Entering passive mode (127,0,0,1,239,121).
+2024-12-31 10:40:59,400 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:61305 at 0x104610fa0>)
+2024-12-31 10:40:59,400 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:61305 at 0x104610fa0>)
+2024-12-31 10:40:59,400 - DEBUG - 127.0.0.1:58028-[rw] <- LIST .
+2024-12-31 10:40:59,401 - DEBUG - 127.0.0.1:58028-[rw] -> 125 Data connection already open. Transfer starting.
+2024-12-31 10:40:59,401 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:40:59,401 - DEBUG - [debug] call: close() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:40:59,401 - DEBUG - 127.0.0.1:58028-[rw] -> 226 Transfer complete.
+2024-12-31 10:41:00,280 - DEBUG - 127.0.0.1:58028-[rw] <- PASV
+2024-12-31 10:41:00,280 - DEBUG - 127.0.0.1:58028-[rw] -> 227 Entering passive mode (127,0,0,1,244,37).
+2024-12-31 10:41:00,281 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:62501 at 0x104610b80>)
+2024-12-31 10:41:00,282 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:62501 at 0x104610b80>)
+2024-12-31 10:41:00,282 - DEBUG - 127.0.0.1:58028-[rw] <- LIST .
+2024-12-31 10:41:00,282 - DEBUG - 127.0.0.1:58028-[rw] -> 125 Data connection already open. Transfer starting.
+2024-12-31 10:41:00,282 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:41:00,283 - DEBUG - [debug] call: close() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:41:00,283 - DEBUG - 127.0.0.1:58028-[rw] -> 226 Transfer complete.
+2024-12-31 10:41:04,483 - DEBUG - 127.0.0.1:58028-[rw] <- TYPE I
+2024-12-31 10:41:04,484 - DEBUG - 127.0.0.1:58028-[rw] -> 200 Type set to: Binary.
+2024-12-31 10:41:04,484 - DEBUG - 127.0.0.1:58028-[rw] <- REST 103460849
+2024-12-31 10:41:04,484 - DEBUG - 127.0.0.1:58028-[rw] -> 350 Restarting at position 103460849.
+2024-12-31 10:41:04,484 - DEBUG - 127.0.0.1:58028-[rw] <- RETR ./zzsfp.tar
+2024-12-31 10:41:04,485 - DEBUG - 127.0.0.1:58028-[rw] -> 150 File status okay. About to open data connection.
+2024-12-31 10:41:04,485 - DEBUG - 127.0.0.1:58028-[rw] <- PASV
+2024-12-31 10:41:04,485 - DEBUG - 127.0.0.1:58028-[rw] -> 227 Entering passive mode (127,0,0,1,251,222).
+2024-12-31 10:41:04,486 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:64478 at 0x104611060>)
+2024-12-31 10:41:04,486 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:64478 at 0x104611060>)
+2024-12-31 10:41:04,486 - DEBUG - [debug] call: close() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw', receiving-file=<_io.BufferedReader name='/Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar'>, bytes-trans=0)>)
+2024-12-31 10:41:04,486 - DEBUG - 127.0.0.1:58028-[rw] -> 226 Transfer complete.
+2024-12-31 10:41:04,486 - INFO - 127.0.0.1:58028-[rw] RETR /Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar completed=1 bytes=0 seconds=0.0
+2024-12-31 10:41:04,487 - INFO - File sent: /Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar
+2024-12-31 10:41:04,488 - DEBUG - 127.0.0.1:58028-[rw] <- TYPE A
+2024-12-31 10:41:04,488 - DEBUG - 127.0.0.1:58028-[rw] -> 200 Type set to: ASCII.
+2024-12-31 10:41:21,179 - DEBUG - 127.0.0.1:58028-[rw] <- TYPE I
+2024-12-31 10:41:21,180 - DEBUG - 127.0.0.1:58028-[rw] -> 200 Type set to: Binary.
+2024-12-31 10:41:21,180 - DEBUG - 127.0.0.1:58028-[rw] <- REST 0
+2024-12-31 10:41:21,180 - DEBUG - 127.0.0.1:58028-[rw] -> 350 Restarting at position 0.
+2024-12-31 10:41:21,180 - DEBUG - 127.0.0.1:58028-[rw] <- RETR ./zzsfp.tar
+2024-12-31 10:41:21,181 - DEBUG - 127.0.0.1:58028-[rw] -> 150 File status okay. About to open data connection.
+2024-12-31 10:41:21,181 - DEBUG - 127.0.0.1:58028-[rw] <- PASV
+2024-12-31 10:41:21,181 - DEBUG - 127.0.0.1:58028-[rw] -> 227 Entering passive mode (127,0,0,1,249,138).
+2024-12-31 10:41:21,182 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:63882 at 0x104610b20>)
+2024-12-31 10:41:21,182 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:63882 at 0x104610b20>)
+2024-12-31 10:41:27,188 - DEBUG - 127.0.0.1:58028-[rw] <- TYPE A
+2024-12-31 10:41:27,188 - DEBUG - 127.0.0.1:58028-[rw] -> 200 Type set to: ASCII.
+2024-12-31 10:41:27,192 - DEBUG - [debug] call: close() (<DTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw', receiving-file=<_io.BufferedReader name='/Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar'>, bytes-trans=2275660)>)
+2024-12-31 10:41:27,192 - DEBUG - 127.0.0.1:58028-[rw] -> 426 Transfer aborted; 2275660 bytes transmitted.
+2024-12-31 10:41:27,192 - INFO - 127.0.0.1:58028-[rw] RETR /Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar completed=0 bytes=2275660 seconds=6.01
+2024-12-31 10:41:27,192 - WARNING - Incomplete file sent: /Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar
+2024-12-31 10:41:32,009 - DEBUG - 127.0.0.1:58028-[rw] <- TYPE I
+2024-12-31 10:41:32,009 - DEBUG - 127.0.0.1:58028-[rw] -> 200 Type set to: Binary.
+2024-12-31 10:41:32,010 - DEBUG - 127.0.0.1:58028-[rw] <- REST 1301800
+2024-12-31 10:41:32,010 - DEBUG - 127.0.0.1:58028-[rw] -> 350 Restarting at position 1301800.
+2024-12-31 10:41:32,010 - DEBUG - 127.0.0.1:58028-[rw] <- RETR 
+2024-12-31 10:41:32,010 - DEBUG - 127.0.0.1:58028-[rw] -> 501 Syntax error: command needs an argument.
+2024-12-31 10:46:32,013 - INFO - 127.0.0.1:58028-[rw] -> 421 Control connection timed out.
+2024-12-31 10:46:32,015 - DEBUG - [debug] call: close() (<CustomFTPHandler(id=4368435808, addr='127.0.0.1:58028', user='rw')>)
+2024-12-31 10:46:32,016 - INFO - 127.0.0.1:58028-[rw] FTP session closed (disconnect).
+2024-12-31 10:46:32,016 - INFO - Client disconnected: 127.0.0.1:58028
+2024-12-31 10:47:54,711 - INFO - 127.0.0.1:59798-[] FTP session opened (connect)
+2024-12-31 10:47:54,711 - INFO - Client connected: 127.0.0.1:59798
+2024-12-31 10:47:54,711 - DEBUG - 127.0.0.1:59798-[] -> 220 Welcome to the secure FTP server!
+2024-12-31 10:47:54,712 - DEBUG - 127.0.0.1:59798-[] <- USER rw
+2024-12-31 10:47:54,712 - DEBUG - 127.0.0.1:59798-[] -> 331 Username ok, send password.
+2024-12-31 10:47:54,712 - DEBUG - 127.0.0.1:59798-[rw] <- PASS ******
+2024-12-31 10:47:54,712 - DEBUG - 127.0.0.1:59798-[rw] -> 230 Login successful.
+2024-12-31 10:47:54,712 - INFO - 127.0.0.1:59798-[rw] USER 'rw' logged in.
+2024-12-31 10:47:54,712 - INFO - User logged in: rw
+2024-12-31 10:47:54,721 - DEBUG - 127.0.0.1:59798-[rw] <- PASV
+2024-12-31 10:47:54,722 - DEBUG - 127.0.0.1:59798-[rw] -> 227 Entering passive mode (127,0,0,1,241,70).
+2024-12-31 10:47:54,722 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:61766 at 0x104610940>)
+2024-12-31 10:47:54,722 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:61766 at 0x104610940>)
+2024-12-31 10:47:54,722 - DEBUG - 127.0.0.1:59798-[rw] <- LIST .
+2024-12-31 10:47:54,723 - DEBUG - 127.0.0.1:59798-[rw] -> 125 Data connection already open. Transfer starting.
+2024-12-31 10:47:54,723 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4368436048, addr='127.0.0.1:59798', user='rw')>)
+2024-12-31 10:47:54,723 - DEBUG - [debug] call: close() (<DTPHandler(id=4368436048, addr='127.0.0.1:59798', user='rw')>)
+2024-12-31 10:47:54,724 - DEBUG - 127.0.0.1:59798-[rw] -> 226 Transfer complete.
+2024-12-31 10:48:22,167 - DEBUG - 127.0.0.1:59798-[rw] <- TYPE I
+2024-12-31 10:48:22,168 - DEBUG - 127.0.0.1:59798-[rw] -> 200 Type set to: Binary.
+2024-12-31 10:48:22,169 - DEBUG - 127.0.0.1:59798-[rw] <- REST 0
+2024-12-31 10:48:22,169 - DEBUG - 127.0.0.1:59798-[rw] -> 350 Restarting at position 0.
+2024-12-31 10:48:22,169 - DEBUG - 127.0.0.1:59798-[rw] <- RETR ./zzsfp.tar
+2024-12-31 10:48:22,170 - DEBUG - 127.0.0.1:59798-[rw] -> 150 File status okay. About to open data connection.
+2024-12-31 10:48:22,170 - DEBUG - 127.0.0.1:59798-[rw] <- PASV
+2024-12-31 10:48:22,171 - DEBUG - 127.0.0.1:59798-[rw] -> 227 Entering passive mode (127,0,0,1,239,159).
+2024-12-31 10:48:22,171 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:61343 at 0x1046111e0>)
+2024-12-31 10:48:22,171 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:61343 at 0x1046111e0>)
+2024-12-31 10:48:30,181 - DEBUG - 127.0.0.1:59798-[rw] <- TYPE A
+2024-12-31 10:48:30,181 - DEBUG - 127.0.0.1:59798-[rw] -> 200 Type set to: ASCII.
+2024-12-31 10:48:30,184 - DEBUG - [debug] call: close() (<DTPHandler(id=4368436048, addr='127.0.0.1:59798', user='rw', receiving-file=<_io.BufferedReader name='/Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar'>, bytes-trans=4718124)>)
+2024-12-31 10:48:30,184 - DEBUG - 127.0.0.1:59798-[rw] -> 426 Transfer aborted; 4718124 bytes transmitted.
+2024-12-31 10:48:30,184 - INFO - 127.0.0.1:59798-[rw] RETR /Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar completed=0 bytes=4718124 seconds=8.013
+2024-12-31 10:48:30,184 - WARNING - Incomplete file sent: /Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar
+2024-12-31 10:48:37,487 - DEBUG - 127.0.0.1:59798-[rw] <- TYPE I
+2024-12-31 10:48:37,488 - DEBUG - 127.0.0.1:59798-[rw] -> 200 Type set to: Binary.
+2024-12-31 10:48:37,488 - DEBUG - 127.0.0.1:59798-[rw] <- REST 3128148
+2024-12-31 10:48:37,488 - DEBUG - 127.0.0.1:59798-[rw] -> 350 Restarting at position 3128148.
+2024-12-31 10:48:37,488 - DEBUG - 127.0.0.1:59798-[rw] <- RETR ./zzsfp.tar
+2024-12-31 10:48:37,489 - DEBUG - 127.0.0.1:59798-[rw] -> 150 File status okay. About to open data connection.
+2024-12-31 10:48:37,489 - DEBUG - 127.0.0.1:59798-[rw] <- PASV
+2024-12-31 10:48:37,490 - DEBUG - 127.0.0.1:59798-[rw] -> 227 Entering passive mode (127,0,0,1,244,41).
+2024-12-31 10:48:37,491 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:62505 at 0x104610fa0>)
+2024-12-31 10:48:37,491 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:62505 at 0x104610fa0>)
+2024-12-31 10:49:55,706 - DEBUG - [debug] call: close() (<DTPHandler(id=4368436048, addr='127.0.0.1:59798', user='rw', receiving-file=<_io.BufferedReader name='/Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar'>, bytes-trans=100332701)>)
+2024-12-31 10:49:55,708 - DEBUG - 127.0.0.1:59798-[rw] -> 226 Transfer complete.
+2024-12-31 10:49:55,708 - INFO - 127.0.0.1:59798-[rw] RETR /Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar completed=1 bytes=100332701 seconds=78.217
+2024-12-31 10:49:55,708 - INFO - File sent: /Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar
+2024-12-31 10:50:01,720 - DEBUG - 127.0.0.1:59798-[rw] <- TYPE A
+2024-12-31 10:50:01,720 - DEBUG - 127.0.0.1:59798-[rw] -> 200 Type set to: ASCII.
+2024-12-31 10:53:19,344 - INFO - 127.0.0.1:60625-[] FTP session opened (connect)
+2024-12-31 10:53:19,346 - INFO - Client connected: 127.0.0.1:60625
+2024-12-31 10:53:19,346 - DEBUG - 127.0.0.1:60625-[] -> 220 Welcome to the secure FTP server!
+2024-12-31 10:53:19,347 - DEBUG - 127.0.0.1:60625-[] <- USER rw
+2024-12-31 10:53:19,347 - DEBUG - 127.0.0.1:60625-[] -> 331 Username ok, send password.
+2024-12-31 10:53:19,347 - DEBUG - 127.0.0.1:60625-[rw] <- PASS ******
+2024-12-31 10:53:19,348 - DEBUG - 127.0.0.1:60625-[rw] -> 230 Login successful.
+2024-12-31 10:53:19,348 - INFO - 127.0.0.1:60625-[rw] USER 'rw' logged in.
+2024-12-31 10:53:19,348 - INFO - User logged in: rw
+2024-12-31 10:53:19,378 - DEBUG - 127.0.0.1:60625-[rw] <- PASV
+2024-12-31 10:53:19,378 - DEBUG - 127.0.0.1:60625-[rw] -> 227 Entering passive mode (127,0,0,1,248,150).
+2024-12-31 10:53:19,379 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:63638 at 0x104610b80>)
+2024-12-31 10:53:19,379 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:63638 at 0x104610b80>)
+2024-12-31 10:53:19,379 - DEBUG - 127.0.0.1:60625-[rw] <- LIST .
+2024-12-31 10:53:19,380 - DEBUG - 127.0.0.1:60625-[rw] -> 125 Data connection already open. Transfer starting.
+2024-12-31 10:53:19,380 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4368437584, addr='127.0.0.1:60625', user='rw')>)
+2024-12-31 10:53:19,380 - DEBUG - [debug] call: close() (<DTPHandler(id=4368437584, addr='127.0.0.1:60625', user='rw')>)
+2024-12-31 10:53:19,381 - DEBUG - 127.0.0.1:60625-[rw] -> 226 Transfer complete.
+2024-12-31 10:53:24,309 - DEBUG - 127.0.0.1:60625-[rw] <- TYPE I
+2024-12-31 10:53:24,309 - DEBUG - 127.0.0.1:60625-[rw] -> 200 Type set to: Binary.
+2024-12-31 10:53:24,310 - DEBUG - 127.0.0.1:60625-[rw] <- REST 0
+2024-12-31 10:53:24,310 - DEBUG - 127.0.0.1:60625-[rw] -> 350 Restarting at position 0.
+2024-12-31 10:53:24,310 - DEBUG - 127.0.0.1:60625-[rw] <- RETR ./zzsfp.tar
+2024-12-31 10:53:24,311 - DEBUG - 127.0.0.1:60625-[rw] -> 150 File status okay. About to open data connection.
+2024-12-31 10:53:24,311 - DEBUG - 127.0.0.1:60625-[rw] <- PASV
+2024-12-31 10:53:24,311 - DEBUG - 127.0.0.1:60625-[rw] -> 227 Entering passive mode (127,0,0,1,235,103).
+2024-12-31 10:53:24,312 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:60263 at 0x104611420>)
+2024-12-31 10:53:24,312 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:60263 at 0x104611420>)
+2024-12-31 10:53:24,314 - DEBUG - [debug] call: close() (<CustomFTPHandler(id=4368436048, addr='127.0.0.1:59798', user='rw')>)
+2024-12-31 10:53:24,314 - INFO - 127.0.0.1:59798-[rw] FTP session closed (disconnect).
+2024-12-31 10:53:24,314 - INFO - Client disconnected: 127.0.0.1:59798
+2024-12-31 10:54:20,444 - DEBUG - [debug] call: close() (<DTPHandler(id=4368437584, addr='127.0.0.1:60625', user='rw', receiving-file=<_io.BufferedReader name='/Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar'>, bytes-trans=103460849)>)
+2024-12-31 10:54:20,445 - DEBUG - 127.0.0.1:60625-[rw] -> 226 Transfer complete.
+2024-12-31 10:54:20,446 - INFO - 127.0.0.1:60625-[rw] RETR /Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar completed=1 bytes=103460849 seconds=56.134
+2024-12-31 10:54:20,446 - INFO - File sent: /Users/aliancn/code/go/ftp/ftp-server/date_rw/zzsfp.tar
+2024-12-31 10:54:26,460 - DEBUG - 127.0.0.1:60625-[rw] <- TYPE A
+2024-12-31 10:54:26,461 - DEBUG - 127.0.0.1:60625-[rw] -> 200 Type set to: ASCII.
+2024-12-31 10:54:50,407 - DEBUG - 127.0.0.1:60625-[rw] <- TYPE I
+2024-12-31 10:54:50,408 - DEBUG - 127.0.0.1:60625-[rw] -> 200 Type set to: Binary.
+2024-12-31 10:54:50,408 - DEBUG - 127.0.0.1:60625-[rw] <- REST 7715
+2024-12-31 10:54:50,409 - DEBUG - 127.0.0.1:60625-[rw] -> 350 Restarting at position 7715.
+2024-12-31 10:54:50,409 - DEBUG - 127.0.0.1:60625-[rw] <- RETR ./app.log
+2024-12-31 10:54:50,409 - DEBUG - 127.0.0.1:60625-[rw] -> 150 File status okay. About to open data connection.
+2024-12-31 10:54:50,409 - DEBUG - 127.0.0.1:60625-[rw] <- PASV
+2024-12-31 10:54:50,410 - DEBUG - 127.0.0.1:60625-[rw] -> 227 Entering passive mode (127,0,0,1,244,195).
+2024-12-31 10:54:50,410 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:62659 at 0x104611000>)
+2024-12-31 10:54:50,410 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:62659 at 0x104611000>)
+2024-12-31 10:54:50,411 - DEBUG - [debug] call: close() (<DTPHandler(id=4368437584, addr='127.0.0.1:60625', user='rw', receiving-file=<_io.BufferedReader name='/Users/aliancn/code/go/ftp/ftp-server/date_rw/app.log'>, bytes-trans=0)>)
+2024-12-31 10:54:50,411 - DEBUG - 127.0.0.1:60625-[rw] -> 226 Transfer complete.
+2024-12-31 10:54:50,411 - INFO - 127.0.0.1:60625-[rw] RETR /Users/aliancn/code/go/ftp/ftp-server/date_rw/app.log completed=1 bytes=0 seconds=0.0
+2024-12-31 10:54:50,411 - INFO - File sent: /Users/aliancn/code/go/ftp/ftp-server/date_rw/app.log
+2024-12-31 10:54:50,412 - DEBUG - 127.0.0.1:60625-[rw] <- TYPE A
+2024-12-31 10:54:50,412 - DEBUG - 127.0.0.1:60625-[rw] -> 200 Type set to: ASCII.
+2024-12-31 10:55:03,092 - DEBUG - 127.0.0.1:60625-[rw] <- TYPE I
+2024-12-31 10:55:03,093 - DEBUG - 127.0.0.1:60625-[rw] -> 200 Type set to: Binary.
+2024-12-31 10:55:03,093 - DEBUG - 127.0.0.1:60625-[rw] <- REST 0
+2024-12-31 10:55:03,093 - DEBUG - 127.0.0.1:60625-[rw] -> 350 Restarting at position 0.
+2024-12-31 10:55:03,093 - DEBUG - 127.0.0.1:60625-[rw] <- RETR ./app.pdf
+2024-12-31 10:55:03,094 - DEBUG - 127.0.0.1:60625-[rw] -> 150 File status okay. About to open data connection.
+2024-12-31 10:55:03,094 - DEBUG - 127.0.0.1:60625-[rw] <- PASV
+2024-12-31 10:55:03,094 - DEBUG - 127.0.0.1:60625-[rw] -> 227 Entering passive mode (127,0,0,1,238,95).
+2024-12-31 10:55:03,095 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:61023 at 0x104610b80>)
+2024-12-31 10:55:03,095 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:61023 at 0x104610b80>)
+2024-12-31 10:55:03,096 - DEBUG - [debug] call: close() (<DTPHandler(id=4368437584, addr='127.0.0.1:60625', user='rw', receiving-file=<_io.BufferedReader name='/Users/aliancn/code/go/ftp/ftp-server/date_rw/app.pdf'>, bytes-trans=297231)>)
+2024-12-31 10:55:03,096 - DEBUG - 127.0.0.1:60625-[rw] -> 226 Transfer complete.
+2024-12-31 10:55:03,096 - INFO - 127.0.0.1:60625-[rw] RETR /Users/aliancn/code/go/ftp/ftp-server/date_rw/app.pdf completed=1 bytes=297231 seconds=0.002
+2024-12-31 10:55:03,096 - INFO - File sent: /Users/aliancn/code/go/ftp/ftp-server/date_rw/app.pdf
+2024-12-31 10:55:07,100 - DEBUG - 127.0.0.1:60625-[rw] <- TYPE A
+2024-12-31 10:55:07,100 - DEBUG - 127.0.0.1:60625-[rw] -> 200 Type set to: ASCII.
+2024-12-31 10:55:20,757 - DEBUG - [debug] call: close() (<CustomFTPHandler(id=4368437584, addr='127.0.0.1:60625', user='rw')>)
+2024-12-31 10:55:20,758 - INFO - 127.0.0.1:60625-[rw] FTP session closed (disconnect).
+2024-12-31 10:55:20,758 - INFO - Client disconnected: 127.0.0.1:60625
