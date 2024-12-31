@@ -4278,3 +4278,60 @@
 2024-12-31 10:55:20,757 - DEBUG - [debug] call: close() (<CustomFTPHandler(id=4368437584, addr='127.0.0.1:60625', user='rw')>)
 2024-12-31 10:55:20,758 - INFO - 127.0.0.1:60625-[rw] FTP session closed (disconnect).
 2024-12-31 10:55:20,758 - INFO - Client disconnected: 127.0.0.1:60625
+2024-12-31 15:55:02,377 - INFO - Starting FTP server...
+2024-12-31 15:55:02,378 - INFO - concurrency model: async
+2024-12-31 15:55:02,378 - INFO - masquerade (NAT) address: None
+2024-12-31 15:55:02,378 - INFO - passive ports: 60000->65534
+2024-12-31 15:55:02,378 - DEBUG - poller: 'pyftpdlib.ioloop.Kqueue'
+2024-12-31 15:55:02,378 - DEBUG - authorizer: 'pyftpdlib.authorizers.DummyAuthorizer'
+2024-12-31 15:55:02,378 - DEBUG - use sendfile(2): True
+2024-12-31 15:55:02,378 - DEBUG - handler: '__main__.type'
+2024-12-31 15:55:02,378 - DEBUG - max connections: 256
+2024-12-31 15:55:02,378 - DEBUG - max connections per ip: 5
+2024-12-31 15:55:02,378 - DEBUG - timeout: 300
+2024-12-31 15:55:02,378 - DEBUG - banner: 'Welcome to the secure FTP server!'
+2024-12-31 15:55:02,378 - DEBUG - max login attempts: 3
+2024-12-31 15:55:02,378 - INFO - >>> starting FTP server on 0.0.0.0:2121, pid=25422 <<<
+2024-12-31 15:55:44,891 - INFO - 127.0.0.1:49554-[] FTP session opened (connect)
+2024-12-31 15:55:44,892 - INFO - Client connected: 127.0.0.1:49554
+2024-12-31 15:55:44,893 - DEBUG - 127.0.0.1:49554-[] -> 220 Welcome to the secure FTP server!
+2024-12-31 15:55:44,894 - DEBUG - 127.0.0.1:49554-[] <- USER rw
+2024-12-31 15:55:44,894 - DEBUG - 127.0.0.1:49554-[] -> 331 Username ok, send password.
+2024-12-31 15:55:44,894 - DEBUG - 127.0.0.1:49554-[rw] <- PASS ******
+2024-12-31 15:55:44,894 - DEBUG - 127.0.0.1:49554-[rw] -> 230 Login successful.
+2024-12-31 15:55:44,894 - INFO - 127.0.0.1:49554-[rw] USER 'rw' logged in.
+2024-12-31 15:55:44,895 - INFO - User logged in: rw
+2024-12-31 15:55:44,926 - DEBUG - 127.0.0.1:49554-[rw] <- PASV
+2024-12-31 15:55:44,926 - DEBUG - 127.0.0.1:49554-[rw] -> 227 Entering passive mode (127,0,0,1,254,2).
+2024-12-31 15:55:44,927 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:65026 at 0x102134b20>)
+2024-12-31 15:55:44,927 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:65026 at 0x102134b20>)
+2024-12-31 15:55:44,927 - DEBUG - 127.0.0.1:49554-[rw] <- LIST .
+2024-12-31 15:55:44,927 - DEBUG - 127.0.0.1:49554-[rw] -> 125 Data connection already open. Transfer starting.
+2024-12-31 15:55:44,928 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4329785952, addr='127.0.0.1:49554', user='rw')>)
+2024-12-31 15:55:44,931 - DEBUG - [debug] call: close() (<DTPHandler(id=4329785952, addr='127.0.0.1:49554', user='rw')>)
+2024-12-31 15:55:44,931 - DEBUG - 127.0.0.1:49554-[rw] -> 226 Transfer complete.
+2024-12-31 15:56:02,916 - DEBUG - 127.0.0.1:49554-[rw] <- PASV
+2024-12-31 15:56:02,917 - DEBUG - 127.0.0.1:49554-[rw] -> 227 Entering passive mode (127,0,0,1,240,44).
+2024-12-31 15:56:02,917 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:61484 at 0x102134910>)
+2024-12-31 15:56:02,918 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:61484 at 0x102134910>)
+2024-12-31 15:56:02,918 - DEBUG - 127.0.0.1:49554-[rw] <- LIST ./dir1
+2024-12-31 15:56:02,919 - DEBUG - 127.0.0.1:49554-[rw] -> 125 Data connection already open. Transfer starting.
+2024-12-31 15:56:02,919 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4329785952, addr='127.0.0.1:49554', user='rw')>)
+2024-12-31 15:56:02,919 - DEBUG - [debug] call: close() (<DTPHandler(id=4329785952, addr='127.0.0.1:49554', user='rw')>)
+2024-12-31 15:56:02,919 - DEBUG - 127.0.0.1:49554-[rw] -> 226 Transfer complete.
+2024-12-31 15:56:06,242 - DEBUG - 127.0.0.1:49554-[rw] <- PASV
+2024-12-31 15:56:06,242 - DEBUG - 127.0.0.1:49554-[rw] -> 227 Entering passive mode (127,0,0,1,235,212).
+2024-12-31 15:56:06,243 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP listening 127.0.0.1:60372 at 0x102134fa0>)
+2024-12-31 15:56:06,243 - DEBUG - [debug] call: close() (<pyftpdlib.handlers.PassiveDTP 127.0.0.1:60372 at 0x102134fa0>)
+2024-12-31 15:56:06,243 - DEBUG - 127.0.0.1:49554-[rw] <- LIST .
+2024-12-31 15:56:06,244 - DEBUG - 127.0.0.1:49554-[rw] -> 125 Data connection already open. Transfer starting.
+2024-12-31 15:56:06,244 - DEBUG - [debug] starting transfer using send() (<DTPHandler(id=4329785952, addr='127.0.0.1:49554', user='rw')>)
+2024-12-31 15:56:06,245 - DEBUG - [debug] call: close() (<DTPHandler(id=4329785952, addr='127.0.0.1:49554', user='rw')>)
+2024-12-31 15:56:06,245 - DEBUG - 127.0.0.1:49554-[rw] -> 226 Transfer complete.
+2024-12-31 16:01:06,247 - INFO - 127.0.0.1:49554-[rw] -> 421 Control connection timed out.
+2024-12-31 16:01:06,250 - DEBUG - [debug] call: close() (<CustomFTPHandler(id=4329785952, addr='127.0.0.1:49554', user='rw')>)
+2024-12-31 16:01:06,250 - INFO - 127.0.0.1:49554-[rw] FTP session closed (disconnect).
+2024-12-31 16:01:06,250 - INFO - Client disconnected: 127.0.0.1:49554
+2024-12-31 16:05:44,922 - INFO - received interrupt signal
+2024-12-31 16:05:44,923 - INFO - >>> shutting down FTP server, 1 socket(s), pid=25422 <<<
+2024-12-31 16:05:44,924 - DEBUG - [debug] closing IOLoop (<pyftpdlib.ioloop.Kqueue (fds=1, tasks=0) at 0x102134700>)

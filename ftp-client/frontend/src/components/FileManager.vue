@@ -10,7 +10,6 @@
 
   <n-space vertical align="start" class="container" v-if="showFilePage">
     <!-- 标题 -->
-    <h2 class="title">File Manager</h2>
     <h3 class="title">Current Path: {{ currentPath }}</h3>
     <n-space>
       <n-button @click="refreshFiles" type="primary" size="large"
@@ -379,9 +378,13 @@ export default defineComponent({
 <style scoped>
 /* 主容器样式 */
 .container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 90%;
+  margin:   20px auto;
+  padding: 20px 20px;
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(50px);
+  border-radius: 50px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.98);
 }
 
 /* 标题样式 */
@@ -419,5 +422,21 @@ n-space {
   .title {
     font-size: 1.5rem;
   }
+}
+/* 表格样式 */
+n-table {
+  border-radius: 8px;
+}
+
+/* 表格行的样式 */
+n-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* 空状态样式 */
+n-empty {
+  text-align: center;
+  font-size: 1rem;
+  color: #888;
 }
 </style>

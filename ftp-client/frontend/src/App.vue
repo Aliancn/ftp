@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 100%;">
     <LoginPage v-if="!isLoggedIn" @login-success="handleLoginSuccess" />
     <FileManager v-else ref="fileManagerRef" />
   </div>

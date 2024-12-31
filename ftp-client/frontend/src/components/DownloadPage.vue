@@ -1,59 +1,61 @@
 <template>
-  <n-card title="文件下载列表">
-    <!-- 文件表格 -->
-    <n-table :bordered="true">
-      <thead>
-        <tr>
-          <th>文件名</th>
-          <th>状态</th>
-          <th>进度</th>
-          <th>操作</th>
-        </tr>
-      </thead>
-      <tbody>
-        <template v-for="row in downloads" :key="row.fileName">
+  <div class="glass-container">
+    <n-card title="文件下载列表" class="glass-card">
+      <!-- 文件表格 -->
+      <n-table :bordered="true">
+        <thead>
           <tr>
-            <td>{{ row.fileName }}</td>
-            <td>
-              <n-tag :type="statusType(row.status)">
-                {{ statusText(row.status) }}
-              </n-tag>
-            </td>
-            <td>
-              <n-progress
-                type="line"
-                :percentage="computeProgress(row)"
-                indicator-placement="inside"
-                processing
-              />
-            </td>
-            <td>
-              <n-button
-                size="small"
-                type="primary"
-                v-if="row.status === 'downloading'"
-                @click="Stop(row)"
-                >暂停</n-button
-              >
-              <n-button
-                size="small"
-                type="primary"
-                v-else-if="row.status === 'paused'"
-                @click="Continue(row)"
-                >继续</n-button
-              >
-              <n-button
-                size="small"
-                type="error"
-                @click="deleteDownload(row.fileName)"
-                >删除</n-button
-              >
-            </td>
+            <th>文件名</th>
+            <th>状态</th>
+            <th>进度</th>
+            <th>操作</th>
           </tr>
-        </template>
-      </tbody>
-    </n-table>
-  </n-card>
+        </thead>
+        <tbody>
+          <template v-for="row in downloads" :key="row.fileName">
+            <tr>
+              <td>{{ row.fileName }}</td>
+              <td>
+                <n-tag :type="statusType(row.status)">
+                  {{ statusText(row.status) }}
+                </n-tag>
+              </td>
+              <td>
+                <n-progress
+                  type="line"
+                  :percentage="computeProgress(row)"
+                  indicator-placement="inside"
+                  processing
+                />
+              </td>
+              <td>
+                <n-button
+                  size="small"
+                  type="primary"
+                  v-if="row.status === 'downloading'"
+                  @click="Stop(row)"
+                  >暂停</n-button
+                >
+                <n-button
+                  size="small"
+                  type="primary"
+                  v-else-if="row.status === 'paused'"
+                  @click="Continue(row)"
+                  >继续</n-button
+                >
+                <n-button
+                  size="small"
+                  type="error"
+                  @click="deleteDownload(row.fileName)"
+                  >删除</n-button
+                >
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </n-table>
+    </n-card>
+  </div>
 </template>
 
 <script lang="ts">
@@ -154,6 +156,27 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.glass-container {
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(px);
+  border-radius: 25px;
+  padding: 30px;
+  margin: auto;
+  width: 90%;
+  height: 100vh;
+  box-shadow: 0 4px 6px rgb(0, 0, 0);
+}
+
+/* 卡片样式 */
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(15, 15, 15, 0.58);
+  padding: 30px;
+  margin: 0 auto;
+}
 .n-card {
   margin-top: 16px;
   width: 90vh;
